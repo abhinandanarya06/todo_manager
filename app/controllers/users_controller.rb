@@ -17,10 +17,11 @@ class UsersController < ApplicationController
     render plain: "New User Account with id = #{new_user.id} is created !"
   end
 
+  # POST /users/login => users#login
   def login
     email = params[:email]
     password = params[:password]
     user = User.where("email = ? and password = ?", email, password)
-    render plain: "#{not user.to_a.empty?}"
+    render plain: "#{not user.empty?}"
   end
 end
