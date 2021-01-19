@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def login
     email = params[:email]
     password = params[:password]
-    user = User.where("email = ? and password = ?", email, password)
+    user = User.login(email, password)
     render plain: "#{not user.empty?}"
   end
 end
