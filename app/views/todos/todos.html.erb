@@ -20,7 +20,7 @@
   </div>
   <%= render partial: "todos-section", locals: {
     title: "Overdue",
-    todos: Todo.overdue,
+    todos: Todo.overdue.completed(false),
     show_date: true
   } %>
   <%= render partial: "todos-section", locals: {
