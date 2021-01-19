@@ -1,5 +1,13 @@
 # Todo Manager App
 
+## Level 6:
+
+### Recreate the Todo Manager design with HTML & CSS
+
+## BEM Naming Convention used as follows :
+
+`parent_element`\_\_`element` `--` `modifier`
+
 ## Level 5:
 
 ### Add user management to the Todo Manager app
