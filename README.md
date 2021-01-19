@@ -6,17 +6,19 @@
 
 ## API Usage
 
+### Deployed on [https://abhi-todo-manager-saas-201.herokuapp.com](https://abhi-todo-manager-saas-201.herokuapp.com)
+
 ### FOR TODO DATA
 
 - Get List of Todos (with designed site)
-  - `GET http://localhost:3000/todos`
+  - `GET /todos`
 - Get Single Todo of given id = `:id`
-  - `GET http://localhost:3000/todos/:id/`
+  - `GET /todos/:id/`
 - Add new Todo
-  - `POST http://localhost:3000/todos`
+  - `POST /todos`
     - `todo_text` : Todo String
     - `due_date` : eg: 2021-Feb-16
 - Mark complete status on given completed = `completed`
-  - `PATCH http://localhost:3000/todos/:id/`
+  - `PATCH /todos/:id/`
     - `id`: Todo id
     - `completed` : Todo status you want to set
