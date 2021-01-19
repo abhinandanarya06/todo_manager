@@ -1,0 +1,30 @@
+<section>
+    <div class="block--flex block--pad">
+      <h3 class="due-head"><%= title %></h3>
+      <p class="overdue-dones--info">
+        <%= todos.completed(true).count %> / <%= todos.count %>
+      </p>
+    </div>
+    <ul>
+      <% todos.each do |todo| %>
+        <li class="ul__li--todo block--flex">
+          <input type="checkbox" name="" id="" class="li__input--big"
+          <%= todo.completed ? "checked": "" %>
+          />
+          <p style= <%= "text-decoration:line-through;" if todo.completed %> >
+            <%= todo.todo_text %>
+          </p>
+
+
+          <% if show_date %>
+            <p class="overdue-dones--info li--date" >
+               <%= todo.due_date.to_s(:short) %>
+            </p>
+          <% end %>
+
+
+          <a href="#" class="a--hide"><img class="img--trashcan" /></a>
+        </li>
+      <% end %>
+    </ul>
+  </section>
