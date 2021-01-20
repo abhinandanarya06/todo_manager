@@ -160,3 +160,7 @@ li:active > a {
   color: #726a7e;
   letter-spacing: 0.09px;
 }
+
+.done {
+  text-decoration: line-through;
+}

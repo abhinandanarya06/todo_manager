@@ -7,21 +7,25 @@
     </div>
     <ul>
       <% todos.each do |todo| %>
+        <% pclass = todo.completed ? "done" : ""
+           attribute = "checked" if todo.completed %>
+
         <li class="ul__li--todo block--flex">
           <input type="checkbox" name="" id="" class="li__input--big"
-          <%= todo.completed ? "checked": "" %>
-          />
-          <p style= <%= "text-decoration:line-through;" if todo.completed %> >
-            <%= todo.todo_text %>
-          </p>
+          <%= attribute %> />
+          <p class="<%= pclass %>" >
 
+            <%= todo.todo_text %>
+
+          </p>
 
           <% if show_date %>
             <p class="overdue-dones--info li--date" >
+
                <%= todo.due_date.to_s(:short) %>
+
             </p>
           <% end %>
-
 
           <a href="#" class="a--hide"><img src="trashcan.png" class="img--trashcan" /></a>
         </li>
