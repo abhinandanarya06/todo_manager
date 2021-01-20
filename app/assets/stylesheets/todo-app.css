@@ -59,6 +59,7 @@
   width: 20px;
   height: 20px;
   margin: 5px 5px 5px 10px;
+  margin-right: 10px;
 }
 
 /* Todo list item class */
@@ -130,7 +131,7 @@ input[type="date"]:focus::-webkit-datetime-edit {
 }
 
 /* class for trashcan image in each todo list item */
-.img--trashcan {
+.a__img--trashcan {
   width: 20px;
   align-content: center;
   align-items: center;

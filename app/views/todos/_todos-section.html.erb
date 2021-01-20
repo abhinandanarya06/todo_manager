@@ -7,12 +7,17 @@
     </div>
     <ul>
       <% todos.each do |todo| %>
-        <% pclass = todo.completed ? "done" : ""
-           attribute = "checked" if todo.completed %>
 
         <li class="ul__li--todo block--flex">
-          <input type="checkbox" name="" id="" class="li__input--big"
-          <%= attribute %> />
+
+          <%= form_with(url: "/todos/#{todo.id}", action: "patch") do |form| %>
+            <%= form.check_box :completed ,
+                              onclick: "this.form.submit()",
+                              class: "li__input--big",
+                              checked: todo.completed %>
+          <% end %>
+
+          <% pclass = todo.completed ? "done" : "" %>
           <p class="<%= pclass %>" >
 
             <%= todo.todo_text %>
@@ -27,7 +32,14 @@
             </p>
           <% end %>
 
-          <a href="#" class="a--hide"><img src="trashcan.png" class="img--trashcan" /></a>
+          <a href="#" class="a--hide a__img--trashcan">
+            <%= form_with(url: "/todos/#{todo.id}", method: "delete") do |form| %>
+              <%= image_submit_tag :trashcan,
+                          src: "trashcan.png",
+                          alt: "Delete",
+                          onclick: "this.form.submit()" %>
+            <% end %>
+          </a>
         </li>
       <% end %>
     </ul>

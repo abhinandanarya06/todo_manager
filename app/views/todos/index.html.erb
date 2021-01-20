@@ -1,23 +1,16 @@
 <main class="body__main--root">
   <h1 class="main__h1--app-head">My Todo-list</h1>
-  <div>
-    <input
-      type="text"
-      name="todo_text"
-      id="todo_text"
-      class="input--todo_text"
-      placeholder="What's next?"
-      required
-    />
-    <input
-      type="date"
-      name="due_date"
-      id="due_date"
-      class="input--due_date"
-      required
-    />
-    <input type="button" value="Add" class="btn--pleasant" />
-  </div>
+  <%= form_with(url: "/todos", method: "post") do |form| %>
+    <%= form.text_field :todo_text,
+            class: "input--todo_text",
+            placeholder: "What's next?",
+            required: true %>
+    <%= form.date_field :due_date,
+            class: "input--due_date",
+            required: true %>
+    <%= form.submit :Add,
+            class: "btn--pleasant" %>
+  <% end %>
   <%= render partial: "todos-section", locals: {
     title: "Overdue",
     todos: Todo.overdue.completed(false),
