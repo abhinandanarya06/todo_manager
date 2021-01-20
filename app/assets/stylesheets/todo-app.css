@@ -131,7 +131,6 @@ input[type="date"]:focus::-webkit-datetime-edit {
 
 /* class for trashcan image in each todo list item */
 .img--trashcan {
-  content: url("trashcan.png");
   width: 20px;
   align-content: center;
   align-items: center;
