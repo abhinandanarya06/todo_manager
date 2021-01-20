@@ -143,10 +143,14 @@ input[type="date"]:focus::-webkit-datetime-edit {
   display: none;
 }
 /* class for list li conditions */
-li:hover {
+li:hover,
+li:active {
   background-color: rgb(209, 209, 209);
 }
 li:hover > a {
+  display: inline;
+}
+li:active > a {
   display: inline;
 }
 
