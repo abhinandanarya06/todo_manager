@@ -161,6 +161,7 @@ li:active > a {
   letter-spacing: 0.09px;
 }
 
+/* for setting todos done or not styles */
 .done {
   text-decoration: line-through;
 }
