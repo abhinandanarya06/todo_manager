@@ -34,8 +34,7 @@
 
           <a href="#" class="a--hide a__img--trashcan">
             <%= form_with(url: "/todos/#{todo.id}", method: "delete") do |form| %>
-              <%= image_submit_tag :trashcan,
-                          src: "trashcan.png",
+              <%= image_submit_tag "trashcan.png",
                           alt: "Delete",
                           onclick: "this.form.submit()" %>
             <% end %>
