@@ -9,10 +9,6 @@ class Todo < ActiveRecord::Base
   scope :due_today, -> { where("due_date = ?", Date.today) }
   scope :due_later, -> { where("due_date > ?", Date.today) }
 
-  def formatted_string
-    "#{id}. #{due_date.to_s(:long)} #{todo_text} [#{completed ? "X" : " "}]"
-  end
-
   def self.completed(status)
     where(completed: status)
   end
