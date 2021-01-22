@@ -13,17 +13,17 @@
   <% end %>
   <%= render partial: "todos-section", locals: {
     title: "Overdue",
-    todos: Todo.overdue.completed(false),
+    todos: @current_user.todos.overdue.completed(false),
     show_date: true
   } %>
   <%= render partial: "todos-section", locals: {
     title: "Due Today",
-    todos: Todo.due_today,
+    todos: @current_user.todos.due_today,
     show_date: false
   } %>
   <%= render partial: "todos-section", locals: {
     title: "Due Later",
-    todos: Todo.due_later,
+    todos: @current_user.todos.due_later,
     show_date: true
   } %>
 </main>

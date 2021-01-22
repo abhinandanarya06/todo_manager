@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <% if @current_user %>
+      <h1 align="left" class="body__main--root main__h1--app-head welcome_user">
+          Welcome <%= @current_user.first_name %>!
+          <%= link_to "Sign out!", destroy_session_path, method: "delete", class: "signout" %>
+      </h1>
+    <% end %>
+
+    <% if flash[:error] %>
+      <p class="body__section--root error"> <%= flash[:error] %> </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

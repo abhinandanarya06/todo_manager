@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
-  def self.login(email, password)
-    where("email = ? and password = ?", email, password)
-  end
-
-  def formatted_string
-    "#{id}. #{name} #{email}"
-  end
+  validates :first_name, presence: true
+  validates :email, presence: true
+  has_secure_password
+  has_many :todos
 end

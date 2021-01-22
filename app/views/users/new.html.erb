@@ -1,0 +1,23 @@
+<section class="body__section--root">
+  <h1 class="section__h1--app-head"> Welcome new user ! </h1>
+
+  <%= form_with url: users_path do |form| %>
+    <div class="form__input--input">
+      First Name  :<br/>
+      <%= form.text_field :first_name, class: "input__text_field" %>
+    </div>
+    <div class="form__input--input">
+      Last Name :<br/>
+      <%= form.text_field :last_name, class: "input__text_field" %>
+    </div>
+    <div class="form__input--input">
+      Email :<br/>
+      <%= form.email_field :email, class: "input__text_field" %>
+    </div>
+    <div class="form__input--input">
+      Password :<br/>
+      <%= form.password_field :password, class: "input__text_field" %>
+    </div>
+    <%= form.submit "Sign Up !", class: "sign" %>
+  <% end %>
+</section>

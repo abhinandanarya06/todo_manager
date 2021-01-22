@@ -1,4 +1,6 @@
 class Todo < ActiveRecord::Base
+  validates :todo_text, :due_date, presence: true
+  belongs_to :user
   # ------------------ FILTER METHODS -----------------------
   # 1. overdue
   # 2. due_today

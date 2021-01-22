@@ -1,27 +1,28 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
-  def index
-    render plain: User.all.map { |user| user.formatted_string }.join("\n")
-  end
+  skip_before_action :ensure_user_logged_in
 
   def create
-    name = params[:name]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
     email = params[:email]
     password = params[:password]
-    new_user = User.create!(
-      name: name,
+    new_user = User.new(
+      first_name: first_name,
+      last_name: last_name,
       email: email,
       password: password,
     )
-    render plain: "New User Account with id = #{new_user.id} is created !"
+    if not new_user.save
+      flash[:error] = new_user.errors.full_messages.join(", ")
+      redirect_to new_user_path
+    else
+      session[:current_user_id] = new_user.id
+      @current_user = current_user
+      redirect_to "/"
+    end
   end
 
-  # POST /users/login => users#login
-  def login
-    email = params[:email]
-    password = params[:password]
-    user = User.login(email, password)
-    render plain: "#{not user.empty?}"
+  def new
+    render "users/new"
   end
 end
