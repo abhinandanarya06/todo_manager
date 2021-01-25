@@ -10,7 +10,7 @@
 
         <li class="ul__li--todo block--flex">
 
-          <%= form_with(url: "/todos/#{todo.id}", action: "patch") do |form| %>
+          <%= form_with(url: "/todos/#{todo.id}", method: "patch") do |form| %>
             <%= form.check_box :completed ,
                               onclick: "this.form.submit()",
                               class: "li__input--big",
