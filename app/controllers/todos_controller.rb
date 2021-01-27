@@ -10,6 +10,7 @@ class TodosController < ApplicationController
   def create
     if not current_user
       render plain: "Please login first"
+      return
     end
     todo_text = params[:todo_text]
     due_date = DateTime.parse(params[:due_date])
